@@ -3,6 +3,7 @@ import CountrySelect from "../components/CountrySelect";
 import CountryInfo from "../components/CountryInfo";
 import CountryList from "../components/CountryList";
 import FavouriteCountries from "../components/FavouriteCountries";
+import TotalPopulation from "../components/TotalPopulation";
 
 const CountryBox = () => {
 
@@ -13,8 +14,11 @@ const CountryBox = () => {
 
     useEffect( () => {
         getCountries();
+    }, []);
+
+    useEffect( () => {
         getTotalPop();
-    });
+    }, [countries])
 
     const getCountries = function () {
         fetch('https://restcountries.com/v3.1/all')
@@ -47,7 +51,8 @@ const CountryBox = () => {
 
     return (
         <>
-        <h2>Total population of all countries:{totalPop}</h2>
+        <TotalPopulation totalPop={totalPop}/>
+        {/* <h2>Total population of all countries:{totalPop}</h2> */}
         <FavouriteCountries faveCountries={faveCountries}/>
         {/* <h2>Favourite Countries: {faveCountries}</h2> */}
         <CountrySelect countries={countries} onCountrySelected={onCountrySelected} />
