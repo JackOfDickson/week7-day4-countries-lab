@@ -44,9 +44,12 @@ const CountryBox = () => {
     }
 
     const onFaveCountry = (country) => {
-        const newFaves = [...faveCountries,country];
+        if (faveCountries.includes(country)) {
+            return
+        } else {
+            const newFaves = [...faveCountries,country];
         setFaveCountries(newFaves);
-
+        }
     };
 
     return (
