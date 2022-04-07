@@ -59,7 +59,7 @@ const CountryBox = () => {
         <FavouriteCountries faveCountries={faveCountries}/>
         {/* <h2>Favourite Countries: {faveCountries}</h2> */}
         <CountrySelect countries={countries} onCountrySelected={onCountrySelected} />
-        {selectedCountry ? <CountryInfo country={selectedCountry} onFaveCountry = {onFaveCountry}/>: null}
+        {selectedCountry ? <CountryInfo country={selectedCountry} onFaveCountry = {onFaveCountry} countries={countries}/>: null}
         <CountryList countries = {countries}/>
         </>
     );

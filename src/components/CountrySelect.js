@@ -11,14 +11,13 @@ const CountrySelect = ({countries, onCountrySelected}) => {
         return <option value={index} key={index}>{country.name.common}</option>
     });
 
-    // const munrosOptions = munros.map ((munro, index) => {
-    //     return <option value={index} key={index}>{munro.name}</option>
-    // });
-
     return (
         <div>
-            <p>Please select a country:</p>
-            <select onChange={handleChange}>{countryOptions}</select>
+            <select onChange={handleChange} defaultValue=''>
+            <option value='' selected>Please select a country</option>
+            {countryOptions}
+            </select>
+            <br /><br />
         </div>
 
     );
